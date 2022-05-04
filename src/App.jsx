@@ -6,6 +6,8 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Dash from './pages/Dashboard/Dash'
+import Inventory from './pages/Inventory/Inventory'
 import * as authService from './services/authService'
 
 const App = () => {
@@ -42,6 +44,14 @@ const App = () => {
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard"
+          element={user ? <Dash /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/inventory"
+          element={user ? <Inventory /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
