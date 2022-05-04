@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
+import { FaBars } from 'react-icons/fa'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -8,6 +9,13 @@ const NavBar = ({ user, handleLogout }) => {
         <nav>
           <ul className={styles.ul}>
             {/* <li><Link to="/profiles">Profiles</Link></li> */}
+            <li>
+              <button
+                style={{background: 'none', border: 'none'}}
+              >
+                <FaBars size='24px' style={{marginTop: '1rem'}}/>
+              </button>
+            </li>
             <li className={styles.logout}>
               <button className={styles.btn}>
                 <Link to="" onClick={handleLogout} style={{ textDecoration: 'none', color: 'black'}}>
