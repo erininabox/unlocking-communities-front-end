@@ -7,54 +7,146 @@ import { InputGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-datepicker/dist/react-datepicker.css";
+import * as contractService from '../../services/contractService'
 
 import DatePicker from "react-datepicker";
 
 
 const ContractForm = () => {
-    const [startDate, setStartDate] = useState(new Date());    
+  const [startDate, setStartDate] = useState(new Date()); 
+  const [contract, setContract] = useState({})
+  const [formData, setFormData] = useState({
+    saleDate: '',
+    entName: '',
+    businessName: '',
+    buyerFirstName: '',
+    buyerLastName: '',
+    natcomNum: '',
+    digicelNum: '',
+    why: '',
+    productPurchased: '',
+    productNum: '',
+    paymentType: '',
+    totalPaid: '',
+    amountToBePaid: '',
+    numberofPayments: '',
+    amountPerPayment: '',
+    dateOfSignature: ''
+  })
+
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      await contractService.createContract(formData)
+      .then(formData => {
+        setContract(formData)
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const { entName, businessName, saleDate, buyerFirstName, buyerLastName, natcomNum, digicelNum, why, productPurchased, productNum, paymentType, totalPaid, amountToBePaid, numberofPayments, amountPerPayment, dateOfSignature } = formData
 
 
   return (
-    <div>
-<h2 className='FormTitle'>Deboke Kominote Yo Sales Contract</h2>
-<h5 className='FormTitle'>Sales Contract</h5>
-<Form>
-<h4>Date of Sale</h4>
-<Form.Group as={Col} controlId="formContractDate">
-<DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} />
-</Form.Group>
-<h4>Entrepreneur Information</h4>
-<Form.Group as={Col} controlId="formEntrepreneurName">
-      <Form.Label>Entrepreneur Name</Form.Label>
-      <Form.Control type="text" placeholder="Non antreprenè" />
-    </Form.Group>
-
-    <Form.Group as={Col} controlId="formBusinessName">
-      <Form.Label>Business Name</Form.Label>
-      <Form.Control type="text" placeholder="Non biznis" />
-    </Form.Group>
-    <h4> Buyer Information </h4>
+  <div>
+    <h2 className='FormTitle'>Deboke Kominote Yo Sales Contract</h2>
+    <h5 className='FormTitle'>Sales Contract</h5>
+    <Form>
+      <h4>Date of Sale</h4>
+      <Form.Group as={Col} controlId="formContractDate">
+        <DatePicker 
+          selected={startDate} 
+          onChange={handleChange}
+          // onChange={(date:Date) => setStartDate(date)} 
+          value={saleDate}
+          name='saleDate'
+          autoComplete='off'
+        />
+      </Form.Group>
+      <h4>Entrepreneur Information</h4>
+      <Form.Group as={Col} controlId="formEntrepreneurName">
+        <Form.Label>Entrepreneur Name</Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="Non antreprenè" 
+          onChange={handleChange}
+          value={entName}
+          name='entName'
+          autoComplete='off'
+        />
+      </Form.Group>
+      <Form.Group as={Col} controlId="formBusinessName">
+        <Form.Label>Business Name</Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="Non biznis" 
+          onChange={handleChange}
+          value={businessName}
+          name='businessName'
+          autoComplete='off'
+        />
+      </Form.Group>
+      <h4> Buyer Information </h4>
   <Row className="mb-3">
     <Form.Group as={Col} controlId="formBuyerFirst">
       <Form.Label>First Name</Form.Label>
-      <Form.Control type="text" placeholder="Premye Non" />
+      <Form.Control 
+        type="text" 
+        placeholder="Premye Non" 
+        onChange={handleChange}
+        value={buyerFirstName}
+        name='buyerFirstName'
+        autoComplete='off'
+      />
     </Form.Group>
 
     <Form.Group as={Col} controlId="formBuyerLast">
       <Form.Label>Last Name</Form.Label>
-      <Form.Control type="text" placeholder="Siyati" />
+      <Form.Control 
+        type="text" 
+        placeholder="Siyati" 
+        onChange={handleChange}
+        value={buyerLastName}
+        name="buyerLastName"
+        autoComplete='off'
+      />
     </Form.Group>
   </Row>
 
   <Form.Group className="mb-3" controlId="formNatcom">
     <Form.Label>Natcom Number</Form.Label>
-    <Form.Control type="tel"  id="phone" name="phone" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" placeholder="Nimewo Natcom" />
+    <Form.Control 
+      type="tel"  
+      id="phone"
+      value={natcomNum} 
+      name="natcomNum" 
+      onChange={handleChange}
+      autoComplete='off'
+      pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" 
+      placeholder="Nimewo Natcom" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formDigicel">
     <Form.Label>Digicel Number</Form.Label>
-    <Form.Control type="tel"  id="phone" name="phone" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" placeholder="Nimewo Digicel" />
+    <Form.Control 
+      type="tel"  
+      id="phone" 
+      name="digicelNum" 
+      pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" 
+      placeholder="Nimewo Digicel" 
+      onChange={handleChange}
+      value={digicelNum}
+      autoComplete='off'
+    />
 
     <h4>Product and Payment Information</h4>
 
