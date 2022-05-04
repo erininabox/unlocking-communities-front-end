@@ -3,12 +3,12 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Dash from './pages/Dashboard/Dash'
 import Inventory from './pages/Inventory/Inventory'
 import * as authService from './services/authService'
+import ContractForm from './components/Form/Form'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -25,16 +25,16 @@ const App = () => {
   }
 
   return (
-    <>
+    <div>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        {/* <Route path="/" element={<Landing user={user} />} /> */}
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/login"
+          path="/"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
@@ -52,9 +52,12 @@ const App = () => {
         <Route
           path="/inventory"
           element={user ? <Inventory /> : <Navigate to="/login" />}
+         <Route
+          path="/ContractForm"
+          element= {<ContractForm /> }
         />
       </Routes>
-    </>
+    </div>
   )
 }
 
