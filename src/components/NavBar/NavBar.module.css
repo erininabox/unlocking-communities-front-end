@@ -1,0 +1,17 @@
+.logout {
+  display: flex;
+  float: right;
+  margin-right: 1%;
+  margin-top: 1%;
+  padding-right: 1%;
+}
+.btn {
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 2.2px;
+  font-size: 16px;
+}
+.ul {
+  list-style: none;
+}
