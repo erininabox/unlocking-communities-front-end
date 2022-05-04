@@ -3,25 +3,34 @@ import styles from './NavBar.module.css'
 import { FaBars } from 'react-icons/fa'
 
 const NavBar = ({ user, handleLogout }) => {
+
   return (
     <>
       {user ?
-        <nav>
+        <nav className={styles.nav}>
           <ul className={styles.ul}>
             {/* <li><Link to="/profiles">Profiles</Link></li> */}
-            <li>
+            <li className={styles.hamburger}>
               <button
                 style={{background: 'none', border: 'none'}}
               >
                 <FaBars size='24px' style={{marginTop: '1rem'}}/>
               </button>
+              <div className={styles.hidden}>
+                <button className={styles.btn}>
+                  <Link to="" onClick={handleLogout} style={{ textDecoration: 'none', color: 'black'}}>
+                    Log Out
+                  </Link>
+                </button>
+                <button className={styles.btn}>
+                  {/* this link doesn't do anything yet */}
+                  <Link to="" style={{ textDecoration: 'none', color: 'black'}}>
+                    Change Community
+                  </Link>
+                </button>
+              </div>
             </li>
             <li className={styles.logout}>
-              <button className={styles.btn}>
-                <Link to="" onClick={handleLogout} style={{ textDecoration: 'none', color: 'black'}}>
-                  Log Out
-                </Link>
-              </button>
               </li>
             {/* <li><Link to="/changePassword">Change Password</Link></li> */}
           </ul>
