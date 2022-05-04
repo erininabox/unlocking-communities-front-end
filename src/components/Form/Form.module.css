@@ -1,0 +1,15 @@
+.FormTitle {
+    margin-left: 25px;
+    padding: 5px;
+}
+.FormLabel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.FormLabelText {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.PhoneLabel {
+    padding: 15px;
+}
