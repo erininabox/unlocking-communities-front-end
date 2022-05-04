@@ -28,14 +28,14 @@ const App = () => {
     <div>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        {/* <Route path="/" element={<Landing user={user} />} /> */}
+        {/* <Route path="/" element={< user={user} />} /> */}
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
           path="/"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          element={!user ? <Login handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/dashboard" />}
         />
         <Route
           path="/profiles"
@@ -47,11 +47,11 @@ const App = () => {
         />
         <Route
           path="/dashboard"
-          element={user ? <Dash /> : <Navigate to="/login" />}
+          element={user ? <Dash /> : <Navigate to="/" />}
         />
         <Route
           path="/inventory"
-          element={user ? <Inventory /> : <Navigate to="/login" />}
+          element={user ? <Inventory /> : <Navigate to="/" />}
         />
         <Route
           path="/ContractForm"
