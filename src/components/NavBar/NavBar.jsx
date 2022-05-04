@@ -7,7 +7,7 @@ const NavBar = ({ user, handleLogout }) => {
       {user ?
         <nav>
           <ul className={styles.ul}>
-            <li><Link to="/profiles">Profiles</Link></li>
+            {/* <li><Link to="/profiles">Profiles</Link></li> */}
             <li className={styles.logout}>
               <button className={styles.btn}>
                 <Link to="" onClick={handleLogout} style={{ textDecoration: 'none', color: 'black'}}>
@@ -15,7 +15,7 @@ const NavBar = ({ user, handleLogout }) => {
                 </Link>
               </button>
               </li>
-            <li><Link to="/changePassword">Change Password</Link></li>
+            {/* <li><Link to="/changePassword">Change Password</Link></li> */}
           </ul>
           <h1 className={styles.h1}>Debloke Kominote Yo</h1>
         </nav>
