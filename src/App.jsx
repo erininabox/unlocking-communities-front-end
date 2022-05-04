@@ -6,6 +6,7 @@ import Login from './pages/Login/Login'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import ContractForm from './components/Form/Form'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -41,6 +42,10 @@ const App = () => {
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+        />
+         <Route
+          path="/ContractForm"
+          element= {<ContractForm /> }
         />
       </Routes>
     </div>
