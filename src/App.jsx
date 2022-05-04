@@ -52,7 +52,8 @@ const App = () => {
         <Route
           path="/inventory"
           element={user ? <Inventory /> : <Navigate to="/login" />}
-         <Route
+        />
+        <Route
           path="/ContractForm"
           element= {<ContractForm /> }
         />
