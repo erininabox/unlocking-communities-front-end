@@ -156,7 +156,10 @@ const ContractForm = () => {
     <div key={`-${type}`} className="mb-3">
       <Form.Check
         label={type.option}
-        name="group1"
+        value={productPurchased}
+        name="productPurchased"
+        onChange={handleChange}
+        autoComplete='off'
         type={type.type}
         id={`-${type}-1`}
       />
@@ -165,7 +168,14 @@ const ContractForm = () => {
 
     <Form.Group as={Col} controlId="formBuyerLast">
       <Form.Label>Product Number</Form.Label>
-      <Form.Control type="number" placeholder="Product Number" />
+      <Form.Control 
+        type="number" 
+        placeholder="Product Number" 
+        value={productNum}
+        name="productNum"
+        onChange={handleChange}
+        autoComplete='off'
+      />
     </Form.Group>
 
     <p>Payment Type (select one)</p>
@@ -173,30 +183,65 @@ const ContractForm = () => {
     <div key={`-${type}`} className="mb-3">
       <Form.Check
         label={type.option}
-        name="group1"
+        value={paymentType}
+        name="paymentType"
+        onChange={handleChange}
+        autoComplete='off'
         type={type.type}
         id={`-${type}-1`}
       />
     </div>
   ))}
-   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Total Amount to be Paid</Form.Label>
-    <Form.Control type="number" placeholder="HTG" />
+    <Form.Control 
+      type="number" 
+      placeholder="HTG"
+      value={amountToBePaid}
+      name="amountToBePaid"
+      onChange={handleChange}
+      autoComplete="off" 
+    />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Total Deposit OR Full Cash Amount</Form.Label>
-    <Form.Control type="number" placeholder="HTG" />
+    <Form.Control 
+      type="number" 
+      placeholder="HTG" 
+      value={totalPaid}
+      name="totalPaid"
+      autoComplete='off'
+      handleChange={handleChange}
+    />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Total Number of Payments (loan only)</Form.Label>
-    <Form.Control type="number" placeholder="HTG" />
+    <Form.Control 
+      type="number" 
+      placeholder="HTG" 
+      autoComplete='off'
+      value={numberofPayments}
+      name='numberofPayments'
+      onChange={handleChange}
+    />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Amount per Payment (loan only)</Form.Label>
-    <Form.Control type="number" placeholder="HTG" />
+    <Form.Control 
+      type="number" 
+      placeholder="HTG" 
+      autoComplete='off'
+      value={amountPerPayment}
+      name="amountPerPayment"
+      onChange={handleChange}
+    />
   </Form.Group>
   <hr></hr>
-  <Button variant="primary" type="submit">
+  <Button 
+    variant="primary" 
+    type="submit"
+    onClick={handleSubmit}
+  >
     Submit
   </Button>
 </Form>
