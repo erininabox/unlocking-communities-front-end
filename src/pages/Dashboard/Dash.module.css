@@ -1,0 +1,35 @@
+.containerx {
+    margin-top: 30px;
+}
+.boxcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.box {
+    width: 35%;
+    border: 1px;
+    background-color: grey;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+.quantity {
+    font-size: larger;
+    font-weight: bold;
+}
+.type {
+    font-size: large;
+}
+.text {
+    font-size: medium;
+}
+.bar {
+    background-color: grey;
+    border-top: 1pt solid black;
+    border-bottom: 1pt solid black;
+    padding: 0 10px 0 30px;
+}
