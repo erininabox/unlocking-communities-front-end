@@ -12,9 +12,7 @@ import DatePicker from "react-datepicker";
 
 
 const ContractForm = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    const [signDate, setSignDate] = useState(new Date());
-    
+    const [startDate, setStartDate] = useState(new Date());    
 
 
   return (
