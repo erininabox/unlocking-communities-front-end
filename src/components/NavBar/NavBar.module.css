@@ -23,13 +23,14 @@
 .ul {
   list-style: none;
   display: flexbox;
+  padding-top: 1rem;
 }
 .h1 {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 1%;
-  /* padding-top: 2%; */
+  padding-bottom: 2rem;
 }
 .hidden {
   display: none;
