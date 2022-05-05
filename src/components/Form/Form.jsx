@@ -275,11 +275,12 @@ const ContractForm = ({addContract}) => {
     variant="primary" 
     type="submit"
     onClick={handleSubmit}
+    className={styles.submitbtn}
   >
     Submit
   </Button>
 </Form>
-<hr></hr>
+{/* <hr></hr>
 <h4 className={styles.FormTitle}>Payment Tracking</h4>
 <Form className='Payment Tracking'>
 
@@ -393,7 +394,7 @@ const ContractForm = ({addContract}) => {
   ))}
     </Form.Group>
   </Row>
-</Form>
+</Form> */}
 </div>
   )
 }
