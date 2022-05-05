@@ -12,7 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
           <ul className={styles.ul}>
             {/* <li><Link to="/profiles">Profiles</Link></li> */}
           <div className={styles.logobox}>
-            <img className={styles.logo} src={logo}></img>
+            <img className={styles.logo} src={logo} alt='logo'></img>
           </div>
             <li className={styles.hamburger}>
               <button
