@@ -1,8 +1,7 @@
-import { GiDroplets } from 'react-icons/gi';
-import { FaPencilAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import styles from './EditWater.module.css';
+import { BsDropletFill } from "react-icons/bs";
 
 const EditWater = () => {
     // State
@@ -25,18 +24,17 @@ const EditWater = () => {
             <form autoComplete='off' onSubmit={handleSubmit} className={styles.form}>
 
             <div className={styles.formdiv}>
-                <p className={styles.inputline}>Water Filters         
-                    {/* <GiDroplets></GiDroplets>  */}
-                    <button className={styles.editbtn}><FaPencilAlt></FaPencilAlt></button>
-                </p>
+                <div className={styles.titleline}>Water Filters         
+                    <BsDropletFill className={styles.h2oicon}></BsDropletFill>
+                </div>
                 <p className={styles.inputline}>Quantity In-Stock: <input type="number" onClick={onChangeInStock} className={styles.numberInput}></input></p>
                 <p className={styles.inputline}>Quantity to Order: <input type="number" className={styles.numberInput}></input></p>
-                <hr />
+                <hr className={styles.hr} />
             </div>
 
             <div className={styles.btnblock}>
-                <Link to="/"><button type="submit" className={styles.btn}>Save</button></Link>
-                <Link to="/"><button type="reset" className={styles.btn}>Cancel</button></Link>
+                <Link to="/"><button type="submit" className={styles.btnprim}>Save</button></Link>
+                <Link to="/"><button type="reset" className={styles.btnsec}>Cancel</button></Link>
             </div>
 
             </form>

@@ -32,6 +32,14 @@
     margin: 0;
     padding-bottom: 10px;
 }
+.titleline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
 .editbtn {
     border: none;
     background-color: #fff;
@@ -43,16 +51,35 @@
     width: 70vw;
     max-width: 400px;
 }
-.btn {
+.btnprim {
     background-color: #4A8CC7;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 100px;
-    border: 0;
+    border: 2px solid #4A8CC7;
     width: 70vw;
     max-width: 400px;
     padding: 5px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin: 10px 0;
+}
+.btnsec {
+    background-color: #fff;
+    color: #4A8CC7;
+    border: 2px solid #4A8CC7;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 100px;
+    width: 70vw;
+    max-width: 400px;
+    padding: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 10px 0;
+}
+.h2oicon {
+    color: #4285F4;
+}
+.hr {
+    color: #000;
 }

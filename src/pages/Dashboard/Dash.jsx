@@ -48,11 +48,11 @@ const Dash = () => {
                     Past Sales
                     </button>
                 </Link>
-                <Link to="/">
+                {/* <Link to="/">
                     <button className={styles.btn}>
                     Sales Trends
                     </button>
-                </Link>
+                </Link> */}
             </div>
             
         </div>
