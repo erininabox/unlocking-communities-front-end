@@ -1,45 +1,98 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState } from "react";
 import styles from './EditStoves.module.css';
 import { GoFlame } from "react-icons/go";
+// import { Link, Navigate } from "react-router-dom";
+import * as inventoryService from "../../services/inventoryService";
+import { useNavigate } from "react-router-dom";
 
 const EditStoves = () => {
-    // State
-    const [inStockNum, setInStockNum] = useState({
-        inStockNum: 0,
-    })
+  // State
+  // const [inStockNum, setInStockNum] = useState({
+  //     inStockNum: 0,
+  // })
+  const [stoveStock, setStoveStock] = useState({});
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "stove",
+    stoveNum: "",
+    stoveToOrder: "",
+  });
 
-    const onChangeInStock = (e) => {
-        setInStockNum({ inStockNum: e.target.value })
-    }
-    const handleSubmit = async evt => {
-        evt.preventDefault();
-        //Send this off to the db
-    }
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    return (
+  // const onChangeInStock = (e) => {
+  //     setInStockNum({ inStockNum: e.target.value })
+  // }
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      await inventoryService.addInventory(formData).then((formData) => {
+        setStoveStock(formData);
+        navigate("/inventory");
+      });
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+
+  const { name, stoveNum, stoveToOrder } = formData;
+
+  return (
+    <div>
+      <h1 className={styles.h1}>Edit Stoves Inventory</h1>
+
+      <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
-            <h1 className={styles.h1}>Edit Stoves Inventory</h1>
-
-            <form autoComplete='off' onSubmit={handleSubmit} className={styles.form}>
-
-            <div className={styles.formdiv}>
-                <div className={styles.titleline}>Stoves         
-                    <GoFlame className={styles.fireicon}></GoFlame>
-                </div>
-                <p className={styles.inputline}>Quantity In-Stock: <input type="number" onClick={onChangeInStock} className={styles.numberInput}></input></p>
-                <p className={styles.inputline}>Quantity to Order: <input type="number" className={styles.numberInput}></input></p>
-                <hr className={styles.hr} />
-            </div>
-
-            <div className={styles.btnblock}>
-                <Link to="/"><button type="submit" className={styles.btnprim}>Save</button></Link>
-                <Link to="/"><button type="reset" className={styles.btnsec}>Cancel</button></Link>
-            </div>
-
-            </form>
+          <h2>
+            Stoves <GoFlame />
+          </h2>
+          <p>
+            Quantity In-Stock
+            <input
+              type="number"
+              value={stoveNum}
+              name="stoveNum"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </p>
+          <p>
+            Quantity to Order
+            <input
+              type="number"
+              value={stoveToOrder}
+              name="stoveToOrder"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </p>
+          {/* <p>Quantity In-Stock 
+                        <input 
+                            type="number"
+                        />
+                    </p>
+                    <p>Quantity to Order 
+                        <input 
+                            type="number"
+                        />
+                    </p> */}
+          <hr />
         </div>
-    )
-}
+        <button type="submit" onClick={handleSubmit}>
+          Save
+        </button>
+        <button type="reset" onClick={() => navigate("/inventory")}>
+          Cancel
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default EditStoves;

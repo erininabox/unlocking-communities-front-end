@@ -11,12 +11,14 @@ import EditWater from './pages/EditWater/EditWater'
 import EditStoves from './pages/EditStoves/EditStoves'
 import * as authService from './services/authService'
 import * as contractService from './services/contractService'
+import * as inventoryService from './services/inventoryService'
 import ContractForm from './components/Form/Form'
 import PastSales from './pages/PastSales/PastSales'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [contracts, setContracts] = useState([])
+  const [inventory, setInventory] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -40,6 +42,11 @@ const App = () => {
   const addContract = async (contractData) => {
     const contract = await contractService.createContract(contractData)
     setContracts([...contracts, contract])
+  }
+
+  const addStoveInventory = async (inventoryData) => {
+    const item = await inventoryService.addInventory(inventoryData)
+    setInventory([...inventory, item])
   }
 
 
@@ -78,7 +85,7 @@ const App = () => {
           element={user ? <EditWater /> : <Navigate to="/login" />} />
         <Route
           path="/stoves"
-          element={user ? <EditStoves /> : <Navigate to="/login" />} />
+          element={user ? <EditStoves addStoveInventory={addStoveInventory}/> : <Navigate to="/login" />} />
         <Route
           path="/contracts"
           element= {<ContractForm addContract={addContract} /> }
