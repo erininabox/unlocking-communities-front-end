@@ -1,6 +1,7 @@
-import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import styles from './EditStoves.module.css';
+import { GoFlame } from "react-icons/go";
 
 const EditStoves = () => {
     // State
@@ -18,19 +19,23 @@ const EditStoves = () => {
 
     return (
         <div>
-            <h1>Edit Filter Inventory</h1>
+            <h1 className={styles.h1}>Edit Stoves Inventory</h1>
 
-            <form autoComplete='off' onSubmit={handleSubmit}>
+            <form autoComplete='off' onSubmit={handleSubmit} className={styles.form}>
 
-            <div>
-                <h2>Stoves <FaFireAlt></FaFireAlt> <button><FaPencilAlt></FaPencilAlt></button></h2>
-                <p>Quantity In-Stock <input type="number" onClick={onChangeInStock}></input></p>
-                <p>Quantity to Order <input type="number"></input></p>
-                <hr />
+            <div className={styles.formdiv}>
+                <div className={styles.titleline}>Stoves         
+                    <GoFlame className={styles.fireicon}></GoFlame>
+                </div>
+                <p className={styles.inputline}>Quantity In-Stock: <input type="number" onClick={onChangeInStock} className={styles.numberInput}></input></p>
+                <p className={styles.inputline}>Quantity to Order: <input type="number" className={styles.numberInput}></input></p>
+                <hr className={styles.hr} />
             </div>
 
-            <Link to="/"><button type="submit">Save</button></Link>
-            <Link to="/"><button type="reset">Cancel</button></Link>
+            <div className={styles.btnblock}>
+                <Link to="/"><button type="submit" className={styles.btnprim}>Save</button></Link>
+                <Link to="/"><button type="reset" className={styles.btnsec}>Cancel</button></Link>
+            </div>
 
             </form>
         </div>
