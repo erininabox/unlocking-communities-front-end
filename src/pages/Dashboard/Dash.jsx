@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import NotificationBar from "../../components/NotificationBar/NotificationBar";
 import styles from './Dash.module.css';
 
@@ -28,6 +29,28 @@ const Dash = () => {
                 <NotificationBar notifications={dummyData.notifications} />
             </div>
 
+            <div className={styles.buttons}>
+                <Link to="/">
+                    <button className={styles.button}>
+                    New Sale
+                    </button>
+                </Link>
+                <Link to="/inventory">
+                    <button className={styles.button}>
+                    Inventory
+                    </button>
+                </Link>
+                <Link to="/">
+                    <button className={styles.button}>
+                    Past Sales
+                    </button>
+                </Link>
+                <Link to="/">
+                    <button className={styles.button}>
+                    Sales Trends
+                    </button>
+                </Link>
+            </div>
             
         </div>
     )
