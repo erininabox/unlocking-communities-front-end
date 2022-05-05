@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -12,6 +12,7 @@ import EditStoves from './pages/EditStoves/EditStoves'
 import * as authService from './services/authService'
 import * as contractService from './services/contractService'
 import ContractForm from './components/Form/Form'
+import PastSales from './pages/PastSales/PastSales'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -28,10 +29,19 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await contractService.getAll()
+      setContracts(data)
+    }
+    fetchData()
+  }, [])
+
   const addContract = async (contractData) => {
     const contract = await contractService.createContract(contractData)
     setContracts([...contracts, contract])
   }
+
 
 
   return (
@@ -73,6 +83,9 @@ const App = () => {
           path="/contracts"
           element= {<ContractForm addContract={addContract} /> }
         />
+        <Route
+          path='/pastsales'
+          element={user ? <PastSales contracts={contracts} /> : <Navigate to='/login' />} />
       </Routes>
     </div>
   )
