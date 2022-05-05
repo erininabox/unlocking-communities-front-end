@@ -1,15 +1,10 @@
-import { useState } from "react";
 import styles from './EditStoves.module.css';
+import { useState } from "react";
 import { GoFlame } from "react-icons/go";
-// import { Link, Navigate } from "react-router-dom";
 import * as inventoryService from "../../services/inventoryService";
 import { useNavigate } from "react-router-dom";
 
 const EditStoves = () => {
-  // State
-  // const [inStockNum, setInStockNum] = useState({
-  //     inStockNum: 0,
-  // })
   const [stoveStock, setStoveStock] = useState({});
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -24,10 +19,7 @@ const EditStoves = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // const onChangeInStock = (e) => {
-  //     setInStockNum({ inStockNum: e.target.value })
-  // }
+  
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
@@ -72,16 +64,6 @@ const EditStoves = () => {
               autoComplete="off"
             />
           </p>
-          {/* <p>Quantity In-Stock 
-                        <input 
-                            type="number"
-                        />
-                    </p>
-                    <p>Quantity to Order 
-                        <input 
-                            type="number"
-                        />
-                    </p> */}
           <hr />
         </div>
         <button type="submit" onClick={handleSubmit}>
