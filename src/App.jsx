@@ -39,6 +39,14 @@ const App = () => {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await inventoryService.getAll()
+      setInventory(data)
+    }
+    fetchData()
+  }, [])
+
   const addContract = async (contractData) => {
     const contract = await contractService.createContract(contractData)
     setContracts([...contracts, contract])
@@ -78,7 +86,7 @@ const App = () => {
         />
         <Route
           path="/inventory"
-          element={user ? <Inventory /> : <Navigate to="/" />} />
+          element={user ? <Inventory inventory={inventory} /> : <Navigate to="/" />} />
         <Route
           path="/filters"
           element={user ? <EditWater /> : <Navigate to="/login" />} />
