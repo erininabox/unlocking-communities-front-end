@@ -4,14 +4,18 @@ import { useState } from 'react';
 import styles from './EditWater.module.css';
 import { BsDropletFill } from "react-icons/bs";
 import { GiDroplets } from 'react-icons/gi';
-import { FaPencilAlt } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
+import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 import styles from './EditWater.module.css';
 import * as inventoryService from '../../services/inventoryService'
 
 const EditWater = () => {
-    // State
     // const [inStockNum, setInStockNum] = useState({
     //     inStockNum: 0,
     // })
@@ -89,8 +93,6 @@ const EditWater = () => {
                 <button type="reset" className={styles.btnsec} onClick={() => navigate('/inventory')}>Cancel</button>
             </div>
 
-            </form>
-        </div>
     )
 }
 
