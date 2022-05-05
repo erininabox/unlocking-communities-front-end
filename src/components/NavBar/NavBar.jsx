@@ -26,12 +26,11 @@ const NavBar = ({ user, handleLogout }) => {
                     Log Out
                   </Link>
                 </button>
-                <button className={styles.btn}>
-                  {/* this link doesn't do anything yet */}
+                {/* <button className={styles.btn}>
                   <Link to="" style={{ textDecoration: 'none', color: 'black'}}>
                     Change Community
                   </Link>
-                </button>
+                </button> */}
               </div>
             </li>
             <li className={styles.logout}>
