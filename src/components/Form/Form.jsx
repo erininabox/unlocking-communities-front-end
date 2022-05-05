@@ -11,11 +11,13 @@ import 'react-phone-number-input/style.css'
 import { FormSelect } from 'react-bootstrap';
 import Entrepreneurs from '../../data/Entrepreneurs'
 import Communities from '../../data/Community';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const ContractForm = ({addContract}) => {
   const [contract, setContract] = useState({})
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     saleDate: '',
     entName: '',
@@ -50,6 +52,7 @@ const ContractForm = ({addContract}) => {
       await contractService.createContract(formData)
       .then(formData => {
         setContract(formData)
+        navigate('/dashboard')
       })
     } catch (err) {
       console.log(err)
