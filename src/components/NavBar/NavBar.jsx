@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
-import styles from './NavBar.module.css'
-import { FaBars } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
+import { FaAngleLeft } from "react-icons/fa";
+import styles from './NavBar.module.css';
+import { FaBars } from 'react-icons/fa';
 import logo from './mainlogo.png';
 
 const NavBar = ({ user, handleLogout }) => {
@@ -11,6 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
         <nav className={styles.nav}>
           <ul className={styles.ul}>
             {/* <li><Link to="/profiles">Profiles</Link></li> */}
+            <li className={styles.back}><Link to="/dashboard"><FaAngleLeft className={styles.angleleft} /></Link></li>
           <div className={styles.logobox}>
             <img className={styles.logo} src={logo} alt='logo'></img>
           </div>
