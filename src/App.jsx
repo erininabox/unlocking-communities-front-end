@@ -48,6 +48,10 @@ const App = () => {
           path="/ContractForm"
           element= {<ContractForm /> }
         />
+        <Route
+          path="/InventoryOverview"
+          element= {<ContractForm /> }
+        />
       </Routes>
     </>
   )
