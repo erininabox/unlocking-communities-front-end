@@ -61,7 +61,7 @@ const ContractForm = ({addContract}) => {
   const SellerDropdown = Entrepreneurs.map((seller, index) => (
     <option
       key={index}
-      eventKey={index}>{seller.entname}</option>
+      eventKey={index}>{seller.name}</option>
   ));
   
   const CommunityDropdown = Communities.map((city, i) => (
@@ -94,7 +94,6 @@ const ContractForm = ({addContract}) => {
       name='entName'>
         {SellerDropdown}
       </Form.Select>
-     
         
       </Form.Group>
       <Form.Group as={Col} controlId="formBusinessName">
