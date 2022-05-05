@@ -1,16 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Dash from './pages/Dashboard/Dash'
+import Inventory from './pages/Inventory/Inventory'
+import EditWater from './pages/EditWater/EditWater'
+import EditStoves from './pages/EditStoves/EditStoves'
 import * as authService from './services/authService'
+import * as contractService from './services/contractService'
 import ContractForm from './components/Form/Form'
+import PastSales from './pages/PastSales/PastSales'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [contracts, setContracts] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -23,18 +29,33 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await contractService.getAll()
+      setContracts(data)
+    }
+    fetchData()
+  }, [])
+
+  const addContract = async (contractData) => {
+    const contract = await contractService.createContract(contractData)
+    setContracts([...contracts, contract])
+  }
+
+
+
   return (
-    <>
+    <div>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        {/* <Route path="/" element={< user={user} />} /> */}
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          path="/"
+          element={!user ? <Login handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/dashboard" />}
         />
         <Route
           path="/profiles"
@@ -44,16 +65,29 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
-         <Route
-          path="/ContractForm"
-          element= {<ContractForm /> }
+        <Route
+          path="/dashboard"
+          element={user ? <Dash /> : <Navigate to="/" />}
         />
         <Route
-          path="/InventoryOverview"
-          element= {<ContractForm /> }
+          path="/inventory"
+          element={user ? <Inventory /> : <Navigate to="/" />}
         />
+        <Route
+          path="/filters"
+          element={user ? <EditWater /> : <Navigate to="/login" />} />
+        <Route
+          path="/stoves"
+          element={user ? <EditStoves /> : <Navigate to="/login" />} />
+        <Route
+          path="/contracts"
+          element= {<ContractForm addContract={addContract} /> }
+        />
+        <Route
+          path='/pastsales'
+          element={user ? <PastSales contracts={contracts} /> : <Navigate to='/login' />} />
       </Routes>
-    </>
+    </div>
   )
 }
 

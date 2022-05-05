@@ -1,0 +1,25 @@
+/* .container {
+    border: 3px solid red;
+} */
+.container {
+    overflow: hidden;
+}
+.item {
+    display: block;
+    padding: 5px;
+    /* border: 3px solid blue; */
+    font-size: smaller;
+}
+h1 {
+    font-size: 16px;
+}
+.bell {
+    display: flex;
+    float: left;
+    height: 3rem;
+    width: 3rem;
+}
+.angle {
+    display: flex;
+    float: right;
+}
