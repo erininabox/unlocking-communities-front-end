@@ -20,3 +20,9 @@
   display: table;
   clear: both;
 }
+.bold {
+  font-weight: 600;
+}
+.second {
+  padding-top: 3%;
+}

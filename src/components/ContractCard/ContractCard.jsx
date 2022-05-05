@@ -16,17 +16,17 @@ const ContractCard = ({contract}) => {
           <li className={styles.column}> Product: </li>
         </div>
         <div className={styles.row}>
-          <li className={styles.column}>{contract.saleDate}</li>
-          <li className={styles.column}>{contract.entName}</li>
-          <li className={styles.column}>{contract.productPurchased}</li>
+          <li className={`${styles.column} ${styles.bold}`}>{contract.saleDate}</li>
+          <li className={`${styles.column} ${styles.bold}`}>{contract.entName}</li>
+          <li className={`${styles.column} ${styles.bold}`}>{contract.productPurchased}</li>
         </div>
-        <div className={styles.row}>
-          <li className={styles.column}> </li>
+        <div className={`${styles.second} ${styles.row}`}>
+          <li className={`${styles.column} ${styles.bold}`}>Paid {contract.amountToBePaid === contract.totalPaid ? '✅ ' : '❌'}</li>
           <li className={styles.column}>Sold To: </li>
         </div>
         <div className={styles.row}>
-          <li className={styles.column}>Paid {contract.amountToBePaid === contract.totalPaid ? '✅ ' : '❌'}</li>
-          <li>{contract.buyerFirstName} {contract.buyerLastName}</li>
+          <li className={styles.column}> </li>
+          <li className={`${styles.column} ${styles.bold}`}>{contract.buyerFirstName} {contract.buyerLastName}</li>
         </div>
       </ul>
     </div>
