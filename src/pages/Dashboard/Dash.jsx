@@ -30,7 +30,7 @@ const Dash = () => {
             </div>
 
             <div className={styles.buttons}>
-                <Link to="/">
+                <Link to="/contracts">
                     <button className={styles.button}>
                     New Sale
                     </button>
