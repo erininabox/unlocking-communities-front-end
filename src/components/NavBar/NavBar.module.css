@@ -43,6 +43,16 @@
 .hamburger:hover .hidden {
   display: flex;
 }
+.angleleft {
+  font-size: 30px; 
+  margin-top: 1rem;
+  color: #000;
+}
+.back {
+  display: flex;
+  align-self: flex-start;
+  color: #000;
+}
 .logobox {
   display: flex;
   align-items: center;
