@@ -34,20 +34,6 @@ const EditStoves = () => {
     }
   };
 
-    const handleSubmit = async evt => {
-        evt.preventDefault();
-        try {
-            await inventoryService.addInventory(formData)
-            .then(formData => {
-                setStoveStock(formData)
-                navigate('/inventory')
-            })
-        } catch (err) {
-            console.log(err)
-            throw (err)
-        }
-    }
-
   return (
     <div>
       <h1 className={styles.h1}>Edit Stoves Inventory</h1>
