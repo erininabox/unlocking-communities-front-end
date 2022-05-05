@@ -10,20 +10,8 @@ import { useState } from 'react';
 import * as inventoryService from '../../services/inventoryService'
 import { useNavigate } from 'react-router-dom';
 
-// const EditStoves = () => {
-//     // State
-//     const [stockOut, setStockOut] = useState({
-//         stockOut: 0,
-//     })
-
-//     const onStockChange = (e) => {
-//         setStockOut({ stockOut: e.target.value })
 
 const EditStoves = () => {
-    // State
-    // const [inStockNum, setInStockNum] = useState({
-    //     inStockNum: 0,
-    // })
     const [stoveStock, setStoveStock] = useState({})
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -38,9 +26,6 @@ const EditStoves = () => {
         })
     }
 
-    // const onChangeInStock = (e) => {
-    //     setInStockNum({ inStockNum: e.target.value })
-    // }
     const handleSubmit = async evt => {
         evt.preventDefault();
         try {
@@ -81,16 +66,6 @@ const EditStoves = () => {
                             autoComplete='off'
                         />
                     </p>
-                    {/* <p>Quantity In-Stock 
-                        <input 
-                            type="number"
-                        />
-                    </p>
-                    <p>Quantity to Order 
-                        <input 
-                            type="number"
-                        />
-                    </p> */}
                     <hr />
                 </div>
                 <button type="submit" onClick={handleSubmit}>Save</button>
