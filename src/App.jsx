@@ -68,7 +68,7 @@ const App = () => {
           element={user ? <EditWater /> : <Navigate to="/login" />} />
         <Route
           path="/stoves"
-          element={user ? <EditStoves /> : <Navigate to="/login" />} />
+          element={<EditStoves /> } />
         <Route
           path="/contracts"
           element= {<ContractForm addContract={addContract} /> }
