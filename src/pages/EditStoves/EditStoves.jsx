@@ -34,6 +34,7 @@ const EditStoves = () => {
     }
   };
 
+  const { name, stoveNum, stoveToOrder } = formData
 
   return (
     <div>
@@ -66,22 +67,20 @@ const EditStoves = () => {
                     </p>
                     <hr className={styles.hr}  />
                 </div>
-                <button type="submit" onClick={handleSubmit}>Save</button>
-                <button type="reset" onClick={() => navigate('/inventory')}>Cancel</button>
             </form>
         </div>
 
         <div className={styles.btnblock}>
-          <button type="submit" onClick={handleSubmit} className={styles.btnprim}>
+            <button type="submit" onClick={handleSubmit} className={styles.btnprim}>
             Save
-          </button>
-          <button className={styles.btnsec} type="reset" onClick={() => navigate("/inventory")}>
+            </button>
+            <button className={styles.btnsec} type="reset" onClick={() => navigate("/inventory")}>
             Cancel
-          </button>
+        </button>
         </div>
-      </form>
+    </form>
     </div>
-  );
+);
 };
 
 export default EditStoves;
