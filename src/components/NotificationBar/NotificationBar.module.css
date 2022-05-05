@@ -3,6 +3,8 @@
 } */
 .container {
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
 .item {
     display: block;
@@ -14,12 +16,16 @@ h1 {
     font-size: 16px;
 }
 .bell {
-    display: flex;
-    float: left;
-    height: 3rem;
-    width: 3rem;
+    vertical-align: bottom;
+
 }
 .angle {
-    display: flex;
-    float: right;
+    align-self: flex-end;
+    color: #000;
+}
+.title {
+    font-size: 16pt;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: black;
 }

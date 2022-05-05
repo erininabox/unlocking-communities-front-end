@@ -1,3 +1,8 @@
+
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import styles from './EditWater.module.css';
+import { BsDropletFill } from "react-icons/bs";
 import { GiDroplets } from 'react-icons/gi';
 import { FaPencilAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
@@ -50,7 +55,9 @@ const EditWater = () => {
             <form autoComplete='off' onSubmit={handleSubmit} className={styles.form}>
 
             <div className={styles.formdiv}>
-                <p className={styles.inputline}>Water Filters         
+
+                <p className={styles.titleline}>Water Filters 
+                      <BsDropletFill className={styles.h2oicon}></BsDropletFill>
                     {/* <GiDroplets></GiDroplets>  */}
                     <button className={styles.editbtn}><FaPencilAlt></FaPencilAlt></button>
                 </p>
@@ -74,12 +81,12 @@ const EditWater = () => {
                     >
                     </input>
                 </p>
-                <hr />
+                <hr classname={styles.hr} />
             </div>
 
             <div className={styles.btnblock}>
-                <button type="submit" className={styles.btn} onClick={handleSubmit}>Save</button>
-                <button type="reset" className={styles.btn} onClick={() => navigate('/inventory')}>Cancel</button>
+                <button type="submit" className={styles.btnprim} onClick={handleSubmit}>Save</button>
+                <button type="reset" className={styles.btnsec} onClick={() => navigate('/inventory')}>Cancel</button>
             </div>
 
             </form>
