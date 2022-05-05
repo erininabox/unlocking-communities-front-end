@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ContractForm = ({addContract}) => {
-  const [contract, setContract] = useState({})
+  // const [contract, setContract] = useState({})
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     saleDate: '',
@@ -50,7 +50,7 @@ const ContractForm = ({addContract}) => {
     try {
       await contractService.createContract(formData)
       .then(formData => {
-        setContract(formData)
+        setFormData(formData)
         navigate('/dashboard')
       })
     } catch (err) {
@@ -58,7 +58,7 @@ const ContractForm = ({addContract}) => {
     }
   }
 
-  const { entName, businessName, saleDate, buyerFirstName, buyerLastName, natcomNum, digicelNum, why, productPurchased, productNum, paymentType, totalPaid, amountToBePaid, numberofPayments, amountPerPayment, dateOfSignature } = formData
+  const { entName, businessName, saleDate, buyerFirstName, buyerLastName, natcomNum, digicelNum, why, productPurchased, productNum, paymentType, totalPaid, amountToBePaid, numberofPayments, amountPerPayment } = formData
 
   const SellerDropdown = Entrepreneurs.map((seller, index) => (
     <option
@@ -275,11 +275,12 @@ const ContractForm = ({addContract}) => {
     variant="primary" 
     type="submit"
     onClick={handleSubmit}
+    className={styles.submitbtn}
   >
     Submit
   </Button>
 </Form>
-<hr></hr>
+{/* <hr></hr>
 <h4 className={styles.FormTitle}>Payment Tracking</h4>
 <Form className='Payment Tracking'>
 
@@ -393,7 +394,7 @@ const ContractForm = ({addContract}) => {
   ))}
     </Form.Group>
   </Row>
-</Form>
+</Form> */}
 </div>
   )
 }

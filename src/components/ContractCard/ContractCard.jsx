@@ -3,7 +3,6 @@ import styles from './ContractCard.module.css'
 // import { Button } from 'react-bootstrap';
 // import { Col } from 'react-bootstrap';
 // import { Row } from 'react-bootstrap';
-import { ListGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ContractCard = ({contract}) => {

@@ -5,7 +5,6 @@ import * as inventoryService from '../../services/inventoryService';
 import { useNavigate } from 'react-router-dom';
 
 const EditWater = () => {
-    const [waterStock, setWaterStock] = useState({})
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: 'water',
@@ -24,7 +23,7 @@ const EditWater = () => {
         try {
             await inventoryService.addInventory(formData)
             .then(formData => {
-                setWaterStock(formData)
+                setFormData(formData)
                 navigate('/inventory')
             })
         } catch (err) {
@@ -33,7 +32,7 @@ const EditWater = () => {
         }
     }
 
-    const { name, waterNum, waterToOrder } = formData
+    const { waterNum, waterToOrder } = formData
 
     return (
         <div>

@@ -1,18 +1,15 @@
-import React, {useState} from 'react';
 import { BsDropletFill } from "react-icons/bs";
 // import { GiDroplets } from 'react-icons/gi';
 import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
 import styles from './Inventory.module.css'
 import { Link } from 'react-router-dom';
 import { ListGroup } from 'react-bootstrap';
 
 // import breakpoint from './react-'
 
-const Inventory = () => {
+const Inventory = ({inventory}) => {
 
     return (
         <main>
@@ -23,8 +20,14 @@ const Inventory = () => {
     <Link to="/filters"><button className={styles.FilterEdit}><FaPencilAlt className={styles.pencil}></FaPencilAlt></button></Link>
     </h2>
     <ListGroup variant="flush">
-    <ListGroup.Item><h4 className={styles.filterLabelOut}>Quantity Out</h4><h4 className={styles.filterOut}>36</h4></ListGroup.Item>
-    <ListGroup.Item><h4 className={styles.filterLabelStock}>Quantity in Stock</h4><h4 className={styles.filterStock}>64</h4></ListGroup.Item>
+    <ListGroup.Item>
+        <h4 className={styles.filterLabelOut}>Quantity Out</h4>
+        <h4 className={styles.filterOut}>36</h4>
+    </ListGroup.Item>
+    <ListGroup.Item>
+        <h4 className={styles.filterLabelStock}>Quantity in Stock</h4>
+        <h4 className={styles.filterStock}>64</h4>
+    </ListGroup.Item>
     <ListGroup.Item><h4 className={styles.filterLabelTransit}>Quantity In-Transit</h4><h4 className={styles.filterTransit}>200</h4></ListGroup.Item>
 </ListGroup>
     </Container >
@@ -37,9 +40,18 @@ const Inventory = () => {
             <button className={styles.StoveEdit}><FaPencilAlt className={styles.pencil}></FaPencilAlt></button></Link></h2>
 
     <ListGroup variant="flush">
-    <ListGroup.Item><h4 className={styles.stoveLabelOut}>Quantity Out</h4><h4 className={styles.stoveOut}>15</h4></ListGroup.Item>
-    <ListGroup.Item><h4 className={styles.stoveLabelStock}>Quantity in Stock</h4><h4 className={styles.stoveStock}>35</h4></ListGroup.Item>
-    <ListGroup.Item><h4 className={styles.stoveLabelTransit}>Quantity In-Transit</h4><h4 className={styles.stoveTransit}>50</h4></ListGroup.Item>
+    <ListGroup.Item>
+        <h4 className={styles.stoveLabelOut}>Quantity Out</h4>
+        <h4 className={styles.stoveOut}>15</h4>
+    </ListGroup.Item>
+    <ListGroup.Item>
+        <h4 className={styles.stoveLabelStock}>Quantity in Stock</h4>
+        <h4 className={styles.stoveStock}>34</h4>
+    </ListGroup.Item>
+    <ListGroup.Item>
+        <h4 className={styles.stoveLabelTransit}>Quantity In-Transit</h4>
+        <h4 className={styles.stoveTransit}>50</h4>
+    </ListGroup.Item>
 </ListGroup>
     </Container >
     <div className={styles.btnblock}>
@@ -54,8 +66,8 @@ const Inventory = () => {
                     </button>
                 </Link>
             </div>
-  <hr></hr>
-  </div>
+<hr></hr>
+</div>
 
         </main>
     )
