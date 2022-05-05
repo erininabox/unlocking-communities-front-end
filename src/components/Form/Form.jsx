@@ -8,16 +8,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as contractService from '../../services/contractService'
 import styles from "./Form.module.css";
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
-import { isPossiblePhoneNumber } from 'react-phone-number-input'
+import { FormSelect } from 'react-bootstrap';
+import Entrepreneurs from '../../data/Entrepreneurs'
+import Communities from '../../data/Community';
 
 
 
 const ContractForm = ({addContract}) => {
-  const [startDate, setStartDate] = useState(new Date()); 
   const [contract, setContract] = useState({})
-  const [value, setValue] = useState()
-  const [value1, setValue1] = useState()
   const [formData, setFormData] = useState({
     saleDate: '',
     entName: '',
@@ -42,6 +40,7 @@ const ContractForm = ({addContract}) => {
       ...formData,
       [e.target.name]: e.target.value,
     })
+    console.log(entName)
   }
 
   const handleSubmit = async e => {
@@ -59,7 +58,17 @@ const ContractForm = ({addContract}) => {
 
   const { entName, businessName, saleDate, buyerFirstName, buyerLastName, natcomNum, digicelNum, why, productPurchased, productNum, paymentType, totalPaid, amountToBePaid, numberofPayments, amountPerPayment, dateOfSignature } = formData
 
-
+  const SellerDropdown = Entrepreneurs.map((seller, index) => (
+    <option
+      key={index}
+      eventKey={index}>{seller.entname}</option>
+  ));
+  
+  const CommunityDropdown = Communities.map((city, i) => (
+    <option
+      key={i}
+      eventKey={i}>{city.name}</option>
+  ));
   return (
   <div>
     <h2 className={styles.FormTitle}>Deboke Kominote Yo Sales Contract</h2>
@@ -74,30 +83,32 @@ const ContractForm = ({addContract}) => {
           onChange={handleChange}
           autoComplete='off'
         />
+
       </Form.Group>
       <h4 className={styles.FormLabel}>Entrepreneur Information</h4>
       <Form.Group as={Col} controlId="formEntrepreneurName">
-        <Form.Label>Entrepreneur Name</Form.Label>
-        <Form.Control 
-          type="text" 
-          placeholder="Non antreprenè" 
-          onChange={handleChange}
-          value={entName}
-          name='entName'
-          autoComplete='off'
-        />
+      <Form.Label>Entrepreneur Name</Form.Label>
+      <Form.Select aria-label="Default select example"
+      onChange={handleChange}
+      value={entName}
+      name='entName'>
+        {SellerDropdown}
+      </Form.Select>
+     
+        
       </Form.Group>
       <Form.Group as={Col} controlId="formBusinessName">
         <Form.Label>Business Name</Form.Label>
-        <Form.Control 
-          type="text" 
-          placeholder="Non biznis" 
-          onChange={handleChange}
-          value={businessName}
-          name='businessName'
-          autoComplete='off'
-        />
+        <Form.Select aria-label="Default select example"
+            name='businessName'
+            value={businessName}  
+            placeholder="Non biznis" 
+            onChange={handleChange}
+            >
+          {CommunityDropdown}
+        </Form.Select>
       </Form.Group>
+      
       <h4 className={styles.FormLabel}> Buyer Information </h4>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formBuyerFirst">
@@ -111,7 +122,7 @@ const ContractForm = ({addContract}) => {
               autoComplete='off'
             />
           </Form.Group>
-
+          
         <Form.Group as={Col} controlId="formBuyerLast">
           <Form.Label>Last Name</Form.Label>
           <Form.Control 
@@ -124,29 +135,6 @@ const ContractForm = ({addContract}) => {
           />
         </Form.Group>
       </Row>
-
-      {/* THIS CODE WON'T ALLOW TRANSLATION TO THE BACKEND  */}
-      
-      {/* <div className={styles.PhoneLabel}>
-      <h6 className={styles.FormLabelText}> Natcom Number: </h6>
-        <PhoneInput
-        defaultCountry="HT"
-        value={natcomNum}
-        name="natcomNum"
-        placeholder="Nimewo Natcom"
-        onChange={handleChange}
-        />
-      </div>
-      <div className={styles.PhoneLabel}>
-      <h6 className={styles.FormLabelText}> Digicel Number: </h6>
-          <PhoneInput
-            defaultCountry="HT"
-            value={digicelNum}
-            name='digicelNum'
-            placeholder="Nimewo Digicel"
-            onChange={handleChange}
-          />
-        </div> */}
 
   <Form.Group className="mb-3" controlId="formNatcom">
     <Form.Label>Natcom Number</Form.Label>
