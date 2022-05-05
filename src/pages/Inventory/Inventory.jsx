@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-// import { BsDropletFill } from "react-icons/bs";
-import { GiDroplets } from 'react-icons/gi';
+import { BsDropletFill } from "react-icons/bs";
+// import { GiDroplets } from 'react-icons/gi';
 import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
@@ -19,8 +19,8 @@ const Inventory = () => {
     <div>
     <h2 className={styles.title}>Inventory Overview</h2>
     <Container fluid="md" className={styles.Container}>
-    <h2> <span className={styles.h2oicon}><GiDroplets></GiDroplets></span> Water Filters
-    <Link to="/filters"><button className={styles.FilterEdit}><FaPencilAlt></FaPencilAlt></button></Link>
+    <h2> <span className={styles.h2oicon}><BsDropletFill></BsDropletFill></span> Water Filters
+    <Link to="/filters"><button className={styles.FilterEdit}><FaPencilAlt className={styles.pencil}></FaPencilAlt></button></Link>
     </h2>
     <ListGroup variant="flush">
     <ListGroup.Item><h4 className={styles.filterLabelOut}>Quantity Out</h4><h4 className={styles.filterOut}>36</h4></ListGroup.Item>
@@ -30,7 +30,11 @@ const Inventory = () => {
     </Container >
     <hr className={styles.break}></hr>
     <Container fluid="md" className={styles.Container}>
-    <h2><span className={styles.fireicon}><FaFireAlt></FaFireAlt></span>Stoves  <Link to="/stoves"><button className={styles.StoveEdit}><FaPencilAlt></FaPencilAlt></button></Link></h2>
+    <h2><span className={styles.fireicon}>
+        <FaFireAlt></FaFireAlt>
+    </span>Stoves  
+        <Link to="/stoves">
+            <button className={styles.StoveEdit}><FaPencilAlt className={styles.pencil}></FaPencilAlt></button></Link></h2>
 
     <ListGroup variant="flush">
     <ListGroup.Item><h4 className={styles.stoveLabelOut}>Quantity Out</h4><h4 className={styles.stoveOut}>15</h4></ListGroup.Item>
