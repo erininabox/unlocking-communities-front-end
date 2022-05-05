@@ -8,7 +8,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as contractService from '../../services/contractService'
 import styles from "./Form.module.css";
 import 'react-phone-number-input/style.css'
-import { FormSelect } from 'react-bootstrap';
 import Entrepreneurs from '../../data/Entrepreneurs'
 import Communities from '../../data/Community';
 import { useNavigate } from 'react-router-dom';

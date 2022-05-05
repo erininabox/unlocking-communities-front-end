@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import * as inventoryService from '../../services/inventoryService';
 
 const EditWater = () => {
-    // State
     // const [inStockNum, setInStockNum] = useState({
     //     inStockNum: 0,
     // })
@@ -80,7 +79,6 @@ const EditWater = () => {
                 <button type="submit" className={styles.btnprim} onClick={handleSubmit}>Save</button>
                 <button type="reset" className={styles.btnsec} onClick={() => navigate('/inventory')}>Cancel</button>
             </div>
-
             </form>
         </div>
     )
