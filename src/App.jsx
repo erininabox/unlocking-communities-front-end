@@ -78,8 +78,7 @@ const App = () => {
         />
         <Route
           path="/inventory"
-          element={user ? <Inventory /> : <Navigate to="/" />}
-        />
+          element={user ? <Inventory /> : <Navigate to="/" />} />
         <Route
           path="/filters"
           element={user ? <EditWater /> : <Navigate to="/login" />} />
