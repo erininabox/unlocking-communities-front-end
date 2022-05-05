@@ -8,7 +8,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Form.module.css";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import { isPossiblePhoneNumber } from 'react-phone-number-input'
 
+// isValid = () => {
+//     isPossiblePhoneNumber(value) {
+//         if value
+//     }
+//     }
+// }
 
 import DatePicker from "react-datepicker";
 
@@ -25,7 +32,8 @@ const ContractForm = () => {
 <Form>
 <h4 className={styles.FormLabel}>Date of Sale</h4>
 <Form.Group as={Col} controlId="formContractDate">
-<DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} />
+<Form.Label>Date of Payment</Form.Label>
+      <Form.Control type="date" placeholder="" />
 </Form.Group>
 <h4 className={styles.FormLabel}>Entrepreneur Information</h4>
 <Form.Group as={Col} controlId="formEntrepreneurName">
@@ -54,10 +62,11 @@ const ContractForm = () => {
     <div className={styles.PhoneLabel}>
     <h6 className={styles.FormLabelText}> Natcom Number: </h6>
         <PhoneInput
-        country="Haiti"
-        value={value1}
+        defaultCountry="HT"
+        value={value}
         placeholder="Nimewo Natcom"
-        onChange={setValue1}/>
+        onChange={() => {setValue(); isPossiblePhoneNumber(value) ? true : false }}
+        style={{backgroundColor: "#ff6f69"}}/>
     
     </div>
 
@@ -65,10 +74,11 @@ const ContractForm = () => {
   <div className={styles.PhoneLabel}>
   <h6 className={styles.FormLabelText}> Digicel Number: </h6>
        <PhoneInput
-        country="Haiti"
-        value={value}
+        defaultCountry="HT"
+        value={value1}
         placeholder="Nimewo Digicel"
-        onChange={setValue}/>
+        onChange={setValue1}
+        {isLoggedIn ? 'currently' : 'not'}/>
     </div>
     <Form.Group as={Col} controlId="BuyerReason">
     <p className={styles.FormLabelText}>Why is the buyer purchasing this product? </p>
@@ -119,7 +129,7 @@ const ContractForm = () => {
   </Form.Group>
    <Form.Group className="mb-3" controlId="TotalAmount">
     <Form.Label>Total Amount to be Paid</Form.Label>
-    <Form.Control type="number" placeholder="HTG" />
+    <Form.Control type="number" placeholder="HTG"/>
   </Form.Group>
   <Form.Group className="mb-3" controlId="TotalDeposit">
     <Form.Label>Total Deposit OR Full Cash Amount</Form.Label>
