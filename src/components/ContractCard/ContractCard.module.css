@@ -1,11 +1,12 @@
 .whole {
-  border: 1px gray solid;
+  border: 1px #d3d3d3 solid;
   width: 80vw;
   display: flex;
   flex-direction: column;
   margin-left: 10%;
   border-radius: 5px;
   margin-bottom: 2%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 2px;
 }
 .ul {
   list-style: none;

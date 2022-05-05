@@ -1,5 +1,7 @@
 .containerx {
-    margin-top: 30px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
 }
 .boxcontainer {
     display: flex;
@@ -8,44 +10,68 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin-bottom: 25px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 .box {
-    width: 200px;
-    background-color: #c4c4c4;
-    box-shadow: 0px 3.25px 3.25px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    padding: 20px;
+    width: 175px;
+    border: 2px solid #BEC2C4;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+    padding: 10px;
     text-align: center;
-    margin: 0 auto 20px;
+    margin: 0 10px 20px;
 }
 .quantity {
     font-size: larger;
     font-weight: bold;
-}
-.type {
-    font-size: large;
+    text-transform: uppercase;
 }
 .text {
     font-size: medium;
 }
 .bar {
-    background-color: #c4c4c4;
-    padding: 0 10px 0 30px;
+    max-width: 400px;
+    border: 2px solid #BEC2C4;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+    padding: 15px;
+    margin: 0 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
-.buttons {
+.btnblock {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 25px;
+    align-self: center;
+    width: 70vw;
+    max-width: 400px;
 }
-.button {
-    width: 200px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 8px;
-    padding: 6px;
-    font-weight: bold;
-    background-color: #c4c4c4;
-    box-shadow: 0px 3.25px 3.25px rgba(0, 0, 0, 0.5);
+.btn {
+    background-color: #4A8CC7;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 100px;
+    border: 0;
+    width: 70vw;
+    max-width: 400px;
+    padding: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 10px;
+}
+.title {
+    text-align: center;
+    font-size: 24pt;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: black;
+}
+.h2oicon {
+    color: #4285F4;
+}
+.fireicon {
+    color: #FF7F37;
 }
