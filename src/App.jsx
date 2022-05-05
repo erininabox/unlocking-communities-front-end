@@ -8,10 +8,12 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Dash from './pages/Dashboard/Dash'
 import Inventory from './pages/Inventory/Inventory'
 import * as authService from './services/authService'
+import * as contractService from './services/contractService'
 import ContractForm from './components/Form/Form'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [contracts, setContracts] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -23,6 +25,12 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  const addContract = async (contractData) => {
+    const contract = await contractService.createContract(contractData)
+    setContracts([...contracts, contract])
+  }
+
 
   return (
     <div>
@@ -54,8 +62,8 @@ const App = () => {
           element={user ? <Inventory /> : <Navigate to="/" />}
         />
         <Route
-          path="/ContractForm"
-          element= {<ContractForm /> }
+          path="/contracts"
+          element= {<ContractForm addContract={addContract} /> }
         />
       </Routes>
     </div>

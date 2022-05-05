@@ -1,19 +1,40 @@
 import * as tokenService from '../services/tokenService'
+import axios from 'axios'
 
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}`
 
-async function createContract(contract) {
-  return await fetch(`${BASE_URL}/contracts`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      Authorization: `Bearer ${tokenService.getToken()}`
-    },
-    body: JSON.stringify(contract)
-  })
-  .then(res => res.json())
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/contracts`
+
+// export const createContract = (formData) => {
+//   axios.post(`${process.env.REACT_APP_BACKEND_SERVER_URL}/contracts`, formData).then((response) => {
+//     console.log(response.status)
+//   })
+// }
+
+export const createContract = async (formData) => {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }, 
+      body: JSON.stringify(formData)
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
 }
 
-export {
-  createContract
-}
+// async function createContract(contract) {
+//   return await fetch(`${BASE_URL}/contracts`, {
+//     method: 'POST',
+//     headers: {
+//       'content-type': 'application/json',
+//       Authorization: `Bearer ${tokenService.getToken()}`
+//     },
+//     body: JSON.stringify(contract)
+//   })
+//   .then(res => res.json())
+// }

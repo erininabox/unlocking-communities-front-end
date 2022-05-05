@@ -12,7 +12,7 @@ import * as contractService from '../../services/contractService'
 import DatePicker from "react-datepicker";
 
 
-const ContractForm = () => {
+const ContractForm = ({addContract}) => {
   const [startDate, setStartDate] = useState(new Date()); 
   const [contract, setContract] = useState({})
   const [formData, setFormData] = useState({
@@ -43,6 +43,7 @@ const ContractForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    console.log(formData)
     try {
       await contractService.createContract(formData)
       .then(formData => {
@@ -63,12 +64,11 @@ const ContractForm = () => {
     <Form>
       <h4>Date of Sale</h4>
       <Form.Group as={Col} controlId="formContractDate">
-        <DatePicker 
-          selected={startDate} 
-          onChange={handleChange}
-          // onChange={(date:Date) => setStartDate(date)} 
+        <Form.Label>Date of Payment</Form.Label>
+        <Form.Control type="date" placeholder="" 
           value={saleDate}
           name='saleDate'
+          onChange={handleChange}
           autoComplete='off'
         />
       </Form.Group>
@@ -139,7 +139,7 @@ const ContractForm = () => {
     <Form.Label>Digicel Number</Form.Label>
     <Form.Control 
       type="tel"  
-      id="phone" 
+      // id="phone" 
       name="digicelNum" 
       pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" 
       placeholder="Nimewo Digicel" 
@@ -211,7 +211,7 @@ const ContractForm = () => {
       value={totalPaid}
       name="totalPaid"
       autoComplete='off'
-      handleChange={handleChange}
+      onChange={handleChange}
     />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
