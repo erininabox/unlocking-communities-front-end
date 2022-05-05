@@ -7,6 +7,8 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Dash from './pages/Dashboard/Dash'
 import Inventory from './pages/Inventory/Inventory'
+import EditWater from './pages/EditWater/EditWater'
+import EditStoves from './pages/EditStoves/EditStoves'
 import * as authService from './services/authService'
 import * as contractService from './services/contractService'
 import ContractForm from './components/Form/Form'
@@ -61,6 +63,12 @@ const App = () => {
           path="/inventory"
           element={user ? <Inventory /> : <Navigate to="/" />}
         />
+        <Route
+          path="/filters"
+          element={user ? <EditWater /> : <Navigate to="/login" />} />
+        <Route
+          path="/stoves"
+          element={user ? <EditStoves /> : <Navigate to="/login" />} />
         <Route
           path="/contracts"
           element= {<ContractForm addContract={addContract} /> }
