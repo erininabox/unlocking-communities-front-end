@@ -1,9 +1,11 @@
+import ContractCard from '../../components/ContractCard/ContractCard'
+
 const PastSales = ({contracts}) => {
   return (
     <div>
       <section>
         {contracts.map((contract) => (
-          <h2>I'm one contract</h2>
+          <ContractCard contract={contract}/>
         ))}
       </section>
     </div>
