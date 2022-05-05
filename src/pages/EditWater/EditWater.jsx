@@ -1,7 +1,6 @@
 import { GiDroplets } from 'react-icons/gi';
 import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import React, {useState} from 'react';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -9,11 +8,8 @@ import { Col } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-=======
-import { useState } from 'react';
 import styles from './EditWater.module.css';
 
->>>>>>> b36dddf08f827c0ed4d037463918e343a2a8522c
 const EditWater = () => {
     // State
 
@@ -29,10 +25,9 @@ const EditWater = () => {
     }
     return (
         <div>
-<<<<<<< HEAD
             <h1>Filter Inventory</h1>
+            <button className={styles.editbtn}><FaPencilAlt></FaPencilAlt></button>
 
-            autoComplete='off' onSubmit={handleSubmit}
             <h2>Water Filters <GiDroplets></GiDroplets> <button><FaPencilAlt></FaPencilAlt></button></h2>
             <Container>
             <Form onSubmit={handleSubmit}>
@@ -75,28 +70,10 @@ const EditWater = () => {
       </Row>
       </Form>
                 </Container>
-=======
-            <h1 className={styles.h1}>Edit Filter Inventory</h1>
-
-            <form autoComplete='off' onSubmit={handleSubmit} className={styles.form}>
-
-            <div className={styles.formdiv}>
-                <p className={styles.inputline}>Water Filters         
-                    {/* <GiDroplets></GiDroplets>  */}
-                    <button className={styles.editbtn}><FaPencilAlt></FaPencilAlt></button>
-                </p>
-                <p className={styles.inputline}>Quantity In-Stock: <input type="number" onClick={onChangeInStock} className={styles.numberInput}></input></p>
-                <p className={styles.inputline}>Quantity to Order: <input type="number" className={styles.numberInput}></input></p>
-                <hr />
-            </div>
->>>>>>> b36dddf08f827c0ed4d037463918e343a2a8522c
-
-            <div className={styles.btnblock}>
                 <Link to="/"><button type="submit" className={styles.btn}>Save</button></Link>
                 <Link to="/"><button type="reset" className={styles.btn}>Cancel</button></Link>
             </div>
 
-        </div>
     )
 }
 

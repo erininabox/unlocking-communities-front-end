@@ -59,7 +59,7 @@ const App = () => {
         />
         <Route
           path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
+          element={ <Profiles />} />
         />
         <Route
           path="/changePassword"
@@ -67,15 +67,15 @@ const App = () => {
         />
         <Route
           path="/dashboard"
-          element={user ? <Dash /> : <Navigate to="/" />}
+          element={<Dash />} />
         />
         <Route
           path="/inventory"
-          element={user ? <Inventory /> : <Navigate to="/" />}
+          element={<Inventory /> }/>
         />
         <Route
           path="/filters"
-          element={user ? <EditWater /> : <Navigate to="/login" />} />
+          element={ <EditWater />} />
         <Route
           path="/stoves"
           element={<EditStoves /> } />
@@ -85,7 +85,7 @@ const App = () => {
         />
         <Route
           path='/pastsales'
-          element={user ? <PastSales contracts={contracts} /> : <Navigate to='/login' />} />
+          element={<PastSales contracts={contracts} /> } />
       </Routes>
     </div>
   )
