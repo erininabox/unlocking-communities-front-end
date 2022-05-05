@@ -10,11 +10,24 @@ const ContractCard = ({contract}) => {
   return (
     <div className={styles.whole}>
       <ul className={styles.ul}>
-        <li>Date {contract.saleDate}</li>
-        <li>Paid {contract.amountToBePaid === contract.totalPaid ? '✅ ' : '❌'}</li>
-        <li> Product: {contract.productPurchased}</li>
-        <li>Sold By: {contract.entName}</li>
-        <li>Sold To: {contract.buyerFirstName} {contract.buyerLastName}</li>
+        <div className={styles.row}>
+          <li className={styles.column}>Date </li>
+          <li className={styles.column}>Sold By: </li>
+          <li className={styles.column}> Product: </li>
+        </div>
+        <div className={styles.row}>
+          <li className={styles.column}>{contract.saleDate}</li>
+          <li className={styles.column}>{contract.entName}</li>
+          <li className={styles.column}>{contract.productPurchased}</li>
+        </div>
+        <div className={styles.row}>
+          <li className={styles.column}> </li>
+          <li className={styles.column}>Sold To: </li>
+        </div>
+        <div className={styles.row}>
+          <li className={styles.column}>Paid {contract.amountToBePaid === contract.totalPaid ? '✅ ' : '❌'}</li>
+          <li>{contract.buyerFirstName} {contract.buyerLastName}</li>
+        </div>
       </ul>
     </div>
       //   <div className={styles.whole}>
