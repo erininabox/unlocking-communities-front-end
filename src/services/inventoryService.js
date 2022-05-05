@@ -4,6 +4,7 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/inventory`
 
 export const addInventory = async(formData) => {
   try {
+    console.log(formData)
     const res = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
