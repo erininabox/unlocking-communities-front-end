@@ -10,21 +10,13 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { isPossiblePhoneNumber } from 'react-phone-number-input'
 
-// isValid = () => {
-//     isPossiblePhoneNumber(value) {
-//         if value
-//     }
-//     }
-// }
-
-import DatePicker from "react-datepicker";
 
 
 const ContractForm = () => {
-    const [startDate, setStartDate] = useState(new Date());    
     const [value, setValue] = useState()
     const [value1, setValue1] = useState()
-
+    
+    
   return (
     <div>
 <h2 className={styles.FormTitle}>Deboke Kominote Yo Sales Contract</h2>
@@ -65,8 +57,8 @@ const ContractForm = () => {
         defaultCountry="HT"
         value={value}
         placeholder="Nimewo Natcom"
-        onChange={() => {setValue(); isPossiblePhoneNumber(value) ? true : false }}
-        style={{backgroundColor: "#ff6f69"}}/>
+        onChange={setValue}
+        />
     
     </div>
 
@@ -77,8 +69,7 @@ const ContractForm = () => {
         defaultCountry="HT"
         value={value1}
         placeholder="Nimewo Digicel"
-        onChange={setValue1}
-        {isLoggedIn ? 'currently' : 'not'}/>
+        onChange={setValue1}/>
     </div>
     <Form.Group as={Col} controlId="BuyerReason">
     <p className={styles.FormLabelText}>Why is the buyer purchasing this product? </p>
