@@ -30,7 +30,7 @@ const Dash = () => {
             </div>
 
             <div className={styles.buttons}>
-                <Link to="/">
+                <Link to="/contracts">
                     <button className={styles.button}>
                     New Sale
                     </button>
@@ -40,7 +40,7 @@ const Dash = () => {
                     Inventory
                     </button>
                 </Link>
-                <Link to="/">
+                <Link to="/pastsales">
                     <button className={styles.button}>
                     Past Sales
                     </button>

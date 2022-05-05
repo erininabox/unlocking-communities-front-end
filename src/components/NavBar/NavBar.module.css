@@ -1,7 +1,9 @@
 .nav {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   margin-top: -1rem;
   padding-top: 0;
+  display: flex;
+  flex-direction: column;
 }
 .logout {
   display: flex;
@@ -22,7 +24,7 @@
 }
 .ul {
   list-style: none;
-  display: flexbox;
+  display: flex;
   padding-top: 1rem;
 }
 .h1 {
@@ -41,4 +43,17 @@
 .hamburger:hover .hidden {
   display: flex;
 }
-
+.logobox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.logo {
+  max-width: 40vw;
+  max-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}

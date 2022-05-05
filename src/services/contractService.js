@@ -38,3 +38,18 @@ export const createContract = async (formData) => {
 //   })
 //   .then(res => res.json())
 // }
+
+
+export const getAll = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}`, {
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return await res.json()
+  } catch (err) {
+    console.log(err)
+    throw(err)
+  }
+}
