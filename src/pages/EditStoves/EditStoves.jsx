@@ -1,14 +1,8 @@
-import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
-import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, Navigate } from 'react-router-dom';
-import { useState } from 'react';
-import * as inventoryService from '../../services/inventoryService'
-import { useNavigate } from 'react-router-dom';
+import styles from './EditStoves.module.css';
+import { useState } from "react";
+import { GoFlame } from "react-icons/go";
+import * as inventoryService from "../../services/inventoryService";
+import { useNavigate } from "react-router-dom";
 
 
 const EditStoves = () => {
@@ -20,59 +14,74 @@ const EditStoves = () => {
         stoveToOrder: '',
     })
 
-    const handleChange = e => {
-        setFormData({
-            ...formData, [e.target.name]: e.target.value,
-        })
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      await inventoryService.addInventory(formData).then((formData) => {
+        setStoveStock(formData);
+        navigate("/inventory");
+      });
+    } catch (err) {
+      console.log(err);
+      throw err;
     }
+  };
 
-    const handleSubmit = async evt => {
-        evt.preventDefault();
-        try {
-            await inventoryService.addInventory(formData)
-            .then(formData => {
-                setStoveStock(formData)
-                navigate('/inventory')
-            })
-        } catch (err) {
-            console.log(err)
-            throw (err)
-        }
-    }
 
-    const { name, stoveNum, stoveToOrder } = formData
+  return (
+    <div>
+      <h1 className={styles.h1}>Edit Stoves Inventory</h1>
 
-    return (
+      <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
-            <h1>Edit Filter Inventory</h1>
             <form autoComplete='off' onSubmit={handleSubmit}>
-                <div>
-                    <h2>Stoves <FaFireAlt /></h2>
-                    <p>Quantity In-Stock 
+                <div className={styles.formdiv}>
+                <p className={styles.titleline}>Stoves <GoFlame className={styles.fireicon}/></p>
+                    <p className={styles.inputline}>Quantity In-Stock 
                         <input 
                             type="number"
+                            className={styles.numberInput}
                             value={stoveNum}
                             name="stoveNum"
                             onChange={handleChange}
                             autoComplete="off"
                         />
                     </p>
-                    <p>Quantity to Order 
+                    <p className={styles.inputline}>Quantity to Order 
                         <input 
                             type="number"
+                            className={styles.numberInput}
                             value={stoveToOrder}
                             name="stoveToOrder"
                             onChange={handleChange}
                             autoComplete='off'
                         />
                     </p>
-                    <hr />
+                    <hr className={styles.hr}  />
                 </div>
                 <button type="submit" onClick={handleSubmit}>Save</button>
                 <button type="reset" onClick={() => navigate('/inventory')}>Cancel</button>
             </form>
         </div>
-    )
-}
+
+        <div className={styles.btnblock}>
+          <button type="submit" onClick={handleSubmit} className={styles.btnprim}>
+            Save
+          </button>
+          <button className={styles.btnsec} type="reset" onClick={() => navigate("/inventory")}>
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default EditStoves;

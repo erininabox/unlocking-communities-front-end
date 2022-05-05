@@ -11,16 +11,17 @@ const LoginPage = props => {
 
   return (
     <main className={styles.container}>
-      <div className={styles.whole}>
-        <img src="https://i.imgur.com/1Yyc4nh.png" alt="unlockingCommunities" style={{ width: '300px', height: '400px'}}/>
+        <img 
+          src="https://i.imgur.com/1Yyc4nh.png" 
+          alt="unlockingCommunities" 
+          className={styles.img}/>
         <div className={styles.form}>
-          <h1>Log In</h1>
+          <h1 className={styles.h1}>Welcome!</h1>
           <p>{message}</p>
           <LoginForm
           handleSignupOrLogin={props.handleSignupOrLogin}
           updateMessage={updateMessage}
           />
-        </div>
       </div>
     </main>
   )
