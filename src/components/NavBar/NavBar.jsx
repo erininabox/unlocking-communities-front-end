@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
 import { FaBars } from 'react-icons/fa'
+import logo from './mainlogo.png';
 
 const NavBar = ({ user, handleLogout }) => {
 
@@ -10,6 +11,9 @@ const NavBar = ({ user, handleLogout }) => {
         <nav className={styles.nav}>
           <ul className={styles.ul}>
             {/* <li><Link to="/profiles">Profiles</Link></li> */}
+          <div className={styles.logobox}>
+            <img className={styles.logo} src={logo}></img>
+          </div>
             <li className={styles.hamburger}>
               <button
                 style={{background: 'none', border: 'none'}}
@@ -34,7 +38,7 @@ const NavBar = ({ user, handleLogout }) => {
               </li>
             {/* <li><Link to="/changePassword">Change Password</Link></li> */}
           </ul>
-          <h1 className={styles.h1}>Debloke Kominote Yo</h1>
+
         </nav>
         :
         <nav>

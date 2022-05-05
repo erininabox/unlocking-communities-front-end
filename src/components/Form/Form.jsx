@@ -8,8 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as contractService from '../../services/contractService'
 import styles from "./Form.module.css";
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
-import { isPossiblePhoneNumber } from 'react-phone-number-input'
+// import PhoneInput from 'react-phone-number-input'
+// import { isPossiblePhoneNumber } from 'react-phone-number-input'
 
 
 

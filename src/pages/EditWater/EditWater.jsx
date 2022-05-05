@@ -2,6 +2,7 @@ import { GiDroplets } from 'react-icons/gi';
 import { FaPencilAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import styles from './EditWater.module.css';
 
 const EditWater = () => {
     // State
@@ -19,19 +20,24 @@ const EditWater = () => {
 
     return (
         <div>
-            <h1>Edit Filter Inventory</h1>
+            <h1 className={styles.h1}>Edit Filter Inventory</h1>
 
-            <form autoComplete='off' onSubmit={handleSubmit}>
+            <form autoComplete='off' onSubmit={handleSubmit} className={styles.form}>
 
-            <div>
-                <h2>Water Filters <GiDroplets></GiDroplets> <button><FaPencilAlt></FaPencilAlt></button></h2>
-                <p>Quantity In-Stock <input type="number" onClick={onChangeInStock}></input></p>
-                <p>Quantity to Order <input type="number"></input></p>
+            <div className={styles.formdiv}>
+                <p className={styles.inputline}>Water Filters         
+                    {/* <GiDroplets></GiDroplets>  */}
+                    <button className={styles.editbtn}><FaPencilAlt></FaPencilAlt></button>
+                </p>
+                <p className={styles.inputline}>Quantity In-Stock: <input type="number" onClick={onChangeInStock} className={styles.numberInput}></input></p>
+                <p className={styles.inputline}>Quantity to Order: <input type="number" className={styles.numberInput}></input></p>
                 <hr />
             </div>
 
-            <Link to="/"><button type="submit">Save</button></Link>
-            <Link to="/"><button type="reset">Cancel</button></Link>
+            <div className={styles.btnblock}>
+                <Link to="/"><button type="submit" className={styles.btn}>Save</button></Link>
+                <Link to="/"><button type="reset" className={styles.btn}>Cancel</button></Link>
+            </div>
 
             </form>
         </div>
