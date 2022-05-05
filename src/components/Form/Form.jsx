@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-datepicker/dist/react-datepicker.css";
 import * as contractService from '../../services/contractService'
 import styles from "./Form.module.css";
-// import 'react-phone-number-input/style.css'
-// import PhoneInput from 'react-phone-number-input'
-// import { isPossiblePhoneNumber } from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import { isPossiblePhoneNumber } from 'react-phone-number-input'
 
 
 
@@ -98,7 +98,6 @@ const ContractForm = ({addContract}) => {
           autoComplete='off'
         />
       </Form.Group>
-      <h4> Buyer Information </h4>
       <h4 className={styles.FormLabel}> Buyer Information </h4>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formBuyerFirst">
@@ -125,18 +124,31 @@ const ContractForm = ({addContract}) => {
           />
         </Form.Group>
       </Row>
-      <div className={styles.PhoneLabel}>
+
+      {/* THIS CODE WON'T ALLOW TRANSLATION TO THE BACKEND  */}
+      
+      {/* <div className={styles.PhoneLabel}>
       <h6 className={styles.FormLabelText}> Natcom Number: </h6>
-        {/* <PhoneInput
+        <PhoneInput
         defaultCountry="HT"
         value={natcomNum}
         name="natcomNum"
         placeholder="Nimewo Natcom"
         onChange={handleChange}
-        /> */}
-    </div>
+        />
+      </div>
+      <div className={styles.PhoneLabel}>
+      <h6 className={styles.FormLabelText}> Digicel Number: </h6>
+          <PhoneInput
+            defaultCountry="HT"
+            value={digicelNum}
+            name='digicelNum'
+            placeholder="Nimewo Digicel"
+            onChange={handleChange}
+          />
+        </div> */}
 
-  {/* <Form.Group className="mb-3" controlId="formNatcom">
+  <Form.Group className="mb-3" controlId="formNatcom">
     <Form.Label>Natcom Number</Form.Label>
     <Form.Control 
       type="tel"  
@@ -147,9 +159,9 @@ const ContractForm = ({addContract}) => {
       autoComplete='off'
       pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" 
       placeholder="Nimewo Natcom" />
-  </Form.Group> */}
+  </Form.Group>
 
-  {/* <Form.Group className="mb-3" controlId="formDigicel">
+  <Form.Group className="mb-3" controlId="formDigicel">
     <Form.Label>Digicel Number</Form.Label>
     <Form.Control 
       type="tel"  
@@ -161,21 +173,9 @@ const ContractForm = ({addContract}) => {
       value={digicelNum}
       autoComplete='off'
     />
-  </Form.Group> */}
-  <Form.Group className="Digicel" controlId="formDigicel">
-  <div className={styles.PhoneLabel}>
-  <h6 className={styles.FormLabelText}> Digicel Number: </h6>
-      {/* <PhoneInput
-        defaultCountry="HT"
-        value={digicelNum}
-        name='digicelNum'
-        placeholder="Nimewo Digicel"
-        onChange={handleChange}
-      /> */}
-    </div>
-    </Form.Group>
+  </Form.Group>
 
-    <h4>Product and Payment Information</h4>
+    <h4 className={styles.FormLabel}>Product and Payment Information</h4>
 
     <Form.Group as={Col} controlId="BuyerReason">
     <p className={styles.FormLabelText}>Why is the buyer purchasing this product? </p>
@@ -183,24 +183,27 @@ const ContractForm = ({addContract}) => {
     <div key={`-${type}`} className="BuyerReason">
       <Form.Check
         label={type.option}
-        name="BuyerReason"
+        name="why"
         type={type.type}
         id={`-${type}-1`}
+        value={why}
+        onChange={handleChange}
       />
     </div>
   ))}
   </Form.Group>
 
-    <h4 className={styles.FormLabel}>Product and Payment Information</h4>
 
   <p className={styles.FormLabelText}>Product Purchased (select one)</p>
   {[{'type':'radio','option': 'Water Filtration System'},{'type':'radio','option':'Filter Only'},{'type':'radio','option':'Clean Burning Stove'},{'type':'radio','option':'Replacement Part'},{'type':'radio','option':'Other'}].map((type) => (
     <div key={`-${type}`} className="ProductPurchased">
       <Form.Check
         label={type.option}
-        name="ProductPurchased"
+        name="productPurchased"
         type={type.type}
         id={`-${type}-1`}
+        value={productPurchased}
+        onChange={handleChange}
       />
     </div>
   ))}
