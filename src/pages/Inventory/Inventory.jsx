@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
 import { BsDropletFill } from "react-icons/bs";
 // import { GiDroplets } from 'react-icons/gi';
 import { FaPencilAlt, FaFireAlt } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
 import styles from './Inventory.module.css'
 import { Link } from 'react-router-dom';
 import { ListGroup } from 'react-bootstrap';

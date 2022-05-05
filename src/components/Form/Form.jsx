@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ContractForm = ({addContract}) => {
-  const [contract, setContract] = useState({})
+  // const [contract, setContract] = useState({})
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     saleDate: '',
@@ -50,7 +50,7 @@ const ContractForm = ({addContract}) => {
     try {
       await contractService.createContract(formData)
       .then(formData => {
-        setContract(formData)
+        setFormData(formData)
         navigate('/dashboard')
       })
     } catch (err) {
@@ -58,7 +58,7 @@ const ContractForm = ({addContract}) => {
     }
   }
 
-  const { entName, businessName, saleDate, buyerFirstName, buyerLastName, natcomNum, digicelNum, why, productPurchased, productNum, paymentType, totalPaid, amountToBePaid, numberofPayments, amountPerPayment, dateOfSignature } = formData
+  const { entName, businessName, saleDate, buyerFirstName, buyerLastName, natcomNum, digicelNum, why, productPurchased, productNum, paymentType, totalPaid, amountToBePaid, numberofPayments, amountPerPayment } = formData
 
   const SellerDropdown = Entrepreneurs.map((seller, index) => (
     <option

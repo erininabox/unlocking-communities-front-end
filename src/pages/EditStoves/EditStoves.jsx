@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const EditStoves = () => {
-    const [stoveStock, setStoveStock] = useState({})
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: 'stove',
@@ -25,7 +24,7 @@ const EditStoves = () => {
     evt.preventDefault();
     try {
       await inventoryService.addInventory(formData).then((formData) => {
-        setStoveStock(formData);
+        setFormData(formData);
         navigate("/inventory");
       });
     } catch (err) {
@@ -34,7 +33,7 @@ const EditStoves = () => {
     }
   };
 
-  const { name, stoveNum, stoveToOrder } = formData
+  const { stoveNum, stoveToOrder } = formData
 
   return (
     <div>
