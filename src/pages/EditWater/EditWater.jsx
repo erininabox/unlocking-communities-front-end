@@ -12,7 +12,6 @@ import { Row } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
-import styles from './EditWater.module.css';
 import * as inventoryService from '../../services/inventoryService'
 
 const EditWater = () => {
@@ -61,7 +60,7 @@ const EditWater = () => {
             <div className={styles.formdiv}>
 
                 <p className={styles.titleline}>Water Filters 
-                      <BsDropletFill className={styles.h2oicon}></BsDropletFill>
+                    <BsDropletFill className={styles.h2oicon}></BsDropletFill>
                     {/* <GiDroplets></GiDroplets>  */}
                     <button className={styles.editbtn}><FaPencilAlt></FaPencilAlt></button>
                 </p>
@@ -92,7 +91,8 @@ const EditWater = () => {
                 <button type="submit" className={styles.btnprim} onClick={handleSubmit}>Save</button>
                 <button type="reset" className={styles.btnsec} onClick={() => navigate('/inventory')}>Cancel</button>
             </div>
-
+            </form>
+        </div>
     )
 }
 
