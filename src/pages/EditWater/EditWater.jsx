@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import styles from './EditWater.module.css';
+import { useState } from 'react';
 import { BsDropletFill } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom';
 import * as inventoryService from '../../services/inventoryService';
+import { useNavigate } from 'react-router-dom';
 
 const EditWater = () => {
-    // const [inStockNum, setInStockNum] = useState({
-    //     inStockNum: 0,
-    // })
     const [waterStock, setWaterStock] = useState({})
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -22,9 +19,6 @@ const EditWater = () => {
         })
     }
 
-    // const onChangeInStock = (e) => {
-    //     setInStockNum({ inStockNum: e.target.value })
-    // }
     const handleSubmit = async evt => {
         evt.preventDefault();
         try {
@@ -59,6 +53,7 @@ const EditWater = () => {
                         value={waterNum}
                         name='waterNum'
                         onChange={handleChange}
+                        autoComplete="off"
                     >
                     </input>
                 </p>
@@ -72,7 +67,7 @@ const EditWater = () => {
                     >
                     </input>
                 </p>
-                <hr classname={styles.hr} />
+                <hr className={styles.hr} />
             </div>
 
             <div className={styles.btnblock}>

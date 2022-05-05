@@ -34,46 +34,51 @@ const EditStoves = () => {
     }
   };
 
+
   return (
     <div>
       <h1 className={styles.h1}>Edit Stoves Inventory</h1>
 
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
-            <h1>Edit Filter Inventory</h1>
             <form autoComplete='off' onSubmit={handleSubmit}>
-                <div>
-                    <h2>Stoves <GoFlame /></h2>
-                    <p>Quantity In-Stock 
+                <div className={styles.formdiv}>
+                <p className={styles.titleline}>Stoves <GoFlame className={styles.fireicon}/></p>
+                    <p className={styles.inputline}>Quantity In-Stock 
                         <input 
                             type="number"
+                            className={styles.numberInput}
                             value={stoveNum}
                             name="stoveNum"
                             onChange={handleChange}
                             autoComplete="off"
                         />
                     </p>
-                    <p>Quantity to Order 
+                    <p className={styles.inputline}>Quantity to Order 
                         <input 
                             type="number"
+                            className={styles.numberInput}
                             value={stoveToOrder}
                             name="stoveToOrder"
                             onChange={handleChange}
                             autoComplete='off'
                         />
                     </p>
-                    <hr />
+                    <hr className={styles.hr}  />
                 </div>
                 <button type="submit" onClick={handleSubmit}>Save</button>
                 <button type="reset" onClick={() => navigate('/inventory')}>Cancel</button>
             </form>
         </div>
-        <button type="submit" onClick={handleSubmit}>
-          Save
-        </button>
-        <button type="reset" onClick={() => navigate("/inventory")}>
-          Cancel
-        </button>
+
+        <div className={styles.btnblock}>
+          <button type="submit" onClick={handleSubmit} className={styles.btnprim}>
+            Save
+          </button>
+          <button className={styles.btnsec} type="reset" onClick={() => navigate("/inventory")}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
