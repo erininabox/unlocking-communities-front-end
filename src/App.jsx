@@ -51,8 +51,8 @@ const App = () => {
         />
         <Route
           path="/inventory"
-          element={user ? <Inventory /> : <Navigate to="/login" />}
-         <Route
+          element={user ? <Inventory /> : <Navigate to="/login" />} />
+        <Route
           path="/ContractForm"
           element= {<ContractForm /> }
         />
