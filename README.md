@@ -28,6 +28,8 @@ The application created is a mobile-first React app, built to be used on Android
 
 Local community leaders and warehouse managers can log into the application from their tablets, view the inventory they currently have in stock, for both water-filtration systems and clean-burning stoves, as well as enter important contract information which has previously been obtained via paper contract by a community entrepreneur. Allowing for digital inventory management and digitization of paper contracts is important for community warehouse flow and advancement of the organization's mission. 
 
+This application is part of a decoupled full stack app. The back-end repository can be found [here](https://github.com/sarahpicard/unlocking-communities-back-end)
+
 ## Wireframes and Prototyping 🖼
 ### [Figma](https://www.figma.com/file/TcQKwAcDOBVqmGn9T9D7LX/Unlocking-Communities-Mobile?node-id=511%3A5622)
 
