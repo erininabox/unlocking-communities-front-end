@@ -16,7 +16,7 @@ export const createContract = async (formData) => {
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
-      }, 
+      },
       body: JSON.stringify(formData)
     })
     return await res.json()
@@ -49,6 +49,6 @@ export const getAll = async () => {
     return await res.json()
   } catch (err) {
     console.log(err)
-    throw(err)
+    throw (err)
   }
 }
