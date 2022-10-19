@@ -52,6 +52,7 @@ const SignupForm = props => {
           value={name}
           name="name"
           onChange={handleChange}
+          className={styles.signupinput}
         />
       </div>
       <div className={styles.inputContainer}>
@@ -63,6 +64,7 @@ const SignupForm = props => {
           value={email}
           name="email"
           onChange={handleChange}
+          className={styles.signupinput}
         />
       </div>
       <div className={styles.inputContainer}>
@@ -74,6 +76,7 @@ const SignupForm = props => {
           value={password}
           name="password"
           onChange={handleChange}
+          className={styles.signupinput}
         />
       </div>
       <div className={styles.inputContainer}>
@@ -87,14 +90,15 @@ const SignupForm = props => {
           value={passwordConf}
           name="passwordConf"
           onChange={handleChange}
+          className={styles.signupinput}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div className={styles.btnblock}>
+        <button disabled={isFormInvalid()} className={styles.btnprim}>
           Sign Up
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button className={styles.btnsec}>Cancel</button>
         </Link>
       </div>
     </form>
